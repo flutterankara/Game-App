@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gameapp/product/models/user/user_model.dart';
 
 class GeneralProvider extends ChangeNotifier {
   int _currentScore = 0;
@@ -7,5 +8,11 @@ class GeneralProvider extends ChangeNotifier {
     _currentScore = value;
     notifyListeners();
   }
-  
+
+  UserModel? _user;
+  UserModel? get user => _user;
+  set user(UserModel? value) {
+    _user = value;
+    notifyListeners();
+  }
 }

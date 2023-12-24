@@ -4,6 +4,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:gameapp/product/navigate/navigation_enums.dart';
+import 'package:gameapp/product/services/user_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/services/navigation_service.dart';
@@ -40,9 +41,13 @@ class Player extends SpriteAnimationComponent with CollisionCallbacks, HasGameRe
     showDialog(
       context: ns.context,
       builder: (context) {
+        var generalProvider = ns.context.read<GeneralProvider>();
+        if (generalProvider.currentScore > generalProvider.user!.highScore!) {
+          UserService.instance.setUserScore(generalProvider.user!.id!, generalProvider.currentScore);
+        }
         return AlertDialog(
           title: const Text('OYUN BİTTİ'),
-          content: Text('Score: ${ns.context.read<GeneralProvider>().currentScore}'),
+          content: Text('Score: ${generalProvider.currentScore}'),
           actions: [
             Center(
               child: ElevatedButton(

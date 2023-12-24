@@ -4,7 +4,10 @@ import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame/text.dart';
 import 'package:gameapp/feature/gameplay/moduls/score.dart';
+import 'package:gameapp/product/providers/general_provider.dart';
+import 'package:provider/provider.dart';
 
+import '../../../core/services/navigation_service.dart';
 import 'box_stack.dart';
 import 'ground.dart';
 import 'player.dart';
@@ -24,6 +27,10 @@ class FlappyEmberGame extends FlameGame with HasCollisionDetection, TapDetector 
     add(Ground());
     add(ScreenHitbox());
     add(Score());
+    add(TextComponent(
+      text: ns.context.read<GeneralProvider>().user?.username ?? '',
+      position: Vector2(0, 32.0),
+    ));
   }
 
   @override
@@ -43,5 +50,4 @@ class FlappyEmberGame extends FlameGame with HasCollisionDetection, TapDetector 
       _timeSinceBox = 0;
     }
   }
-
 }
