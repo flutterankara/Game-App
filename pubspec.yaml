@@ -16,6 +16,7 @@ dependencies:
   shared_preferences: ^2.2.1
   stacked: ^3.4.1+1
   timeago: ^3.5.0
+  lottie: ^2.7.0
   flame: ^1.13.1
   firebase_core: ^2.24.2
   cloud_firestore: ^4.13.6
@@ -35,5 +36,13 @@ flutter:
   assets:
   - assets/lang/
   - assets/png/
+  - assets/animation/
+  - assets/font/
+  - assets/sound/
   - assets/images/
   - assets/images/boxes/
+
+  fonts:
+    - family: PixelFont
+      fonts:
+        - asset: assets/font/pixel.ttf
