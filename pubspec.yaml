@@ -22,6 +22,10 @@ dependencies:
   cloud_firestore: ^4.13.6
   google_mobile_ads: ^4.0.0
 
+  #benim paketler
+  audioplayers: ^5.2.1
+  url_launcher: ^6.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -36,6 +40,8 @@ flutter:
   assets:
   - assets/lang/
   - assets/png/
+  - assets/sounds/flp.mp3
+  - assets/sounds/jump.mp3
   - assets/animation/
   - assets/font/
   - assets/images/

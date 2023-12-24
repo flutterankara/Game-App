@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gameapp/feature/settings_screen/settings_view.dart';
 import 'package:gameapp/feature/gameplay/gameplay_view.dart';
 import 'package:gameapp/feature/mainmenu/mainmenu_view.dart';
 import '../../feature/splash/splash_view.dart';
@@ -18,7 +19,11 @@ class NavigationRoute {
     }
   }
 
-  MaterialPageRoute _normalNavigate(Widget widget, {RouteSettings? settings, bool isFullScreen = false}) {
-    return MaterialPageRoute(builder: (context) => widget, settings: settings, fullscreenDialog: isFullScreen);
+  MaterialPageRoute _normalNavigate(Widget widget,
+      {RouteSettings? settings, bool isFullScreen = false}) {
+    return MaterialPageRoute(
+        builder: (context) => widget,
+        settings: settings,
+        fullscreenDialog: isFullScreen);
   }
 }
