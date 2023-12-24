@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../firebase_options.dart';
 import 'shared_manager.dart';
 import 'timezone_init.dart';
 
@@ -10,7 +12,9 @@ class ApplicationInit {
     WidgetsFlutterBinding.ensureInitialized();
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await _initEasyLocalization();
-
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
     TimezoneInit().init();
     SharedManager.instance.initSharedManager();
   }
@@ -20,5 +24,4 @@ class ApplicationInit {
     EasyLocalization.logger.enableBuildModes = [];
     await EasyLocalization.ensureInitialized();
   }
-
 }

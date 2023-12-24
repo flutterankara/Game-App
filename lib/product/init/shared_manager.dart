@@ -30,6 +30,18 @@ class SharedManager {
   Future<bool> setBoolValue(SharedKeys key, bool value) async {
     return await prefences.setBool(key.toString(), value);
   }
+
+  String? getStringValue(SharedKeys key) {
+    return prefences.getString(key.toString());
+  }
+
+  Future<bool> setStringValue(SharedKeys key, String value) async {
+    return await prefences.setString(key.toString(), value);
+  }
+
+  Future<bool> remove(SharedKeys key) async {
+    return await prefences.remove(key.toString());
+  }
 }
 
-enum SharedKeys { theme}
+enum SharedKeys { theme, username, userId }

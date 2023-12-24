@@ -1,5 +1,7 @@
 enum NavEnums {
-  init;
+  init,
+  menu,
+  gameplay;
 
   String get rawValue => switch (this) { _ => '/$name' };
 }
