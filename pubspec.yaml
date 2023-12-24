@@ -16,6 +16,7 @@ dependencies:
   shared_preferences: ^2.2.1
   stacked: ^3.4.1+1
   timeago: ^3.5.0
+  lottie: ^2.7.0
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +30,11 @@ flutter:
   assets:
   - assets/lang/
   - assets/png/
+  - assets/animation/
+  - assets/font/
+  - assets/sound/
+
+  fonts:
+    - family: PixelFont
+      fonts:
+        - asset: assets/font/pixel.ttf

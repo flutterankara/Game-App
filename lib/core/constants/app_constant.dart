@@ -1,2 +1,10 @@
 const double kZero = 0;
 const double kOne = 1;
+const String animBackground = 'assets/animation/backgroundAnim.json';
+const String animInfo = 'assets/animation/infoAnim.json';
+const String animPlay = 'assets/animation/playAnim.json';
+const String animReward = 'assets/animation/rewardsAnim.json';
+const String animSetting = 'assets/animation/settingsAnim.json';
+const String animLeader = 'assets/animation/leaderAnim.json';
+const String animLeaderBoard = 'assets/animation/leaderBoardAnim.json';
+const String animShop = 'assets/animation/shopAnim2.json';
