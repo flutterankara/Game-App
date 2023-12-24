@@ -51,4 +51,19 @@ class UserService {
       print(e);
     }
   }
+
+  Future<SimpleResult> fetchUsers() async {
+    try {
+      QuerySnapshot snapshot =
+          await FirebaseFirestore.instance.collection('users').orderBy('highScore', descending: true).get();
+      var userList = [];
+      for (var element in snapshot.docs) {
+        userList.add(UserModel.fromJson(element.data() as Map<String, dynamic>));
+      }
+      return SimpleResult(isSuccess: true, data: userList);
+    } catch (e) {
+      print(e);
+      return SimpleResult(isSuccess: false);
+    }
+  }
 }
