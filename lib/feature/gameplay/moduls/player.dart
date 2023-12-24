@@ -19,11 +19,12 @@ class Player extends SpriteAnimationComponent
 
   @override
   Future<void> onLoad() async {
+    var dashType = ns.context.read<GeneralProvider>().dashType;
     animation = SpriteAnimation.fromFrameData(
-      await Flame.images.load('dash.png'),
+      await Flame.images.load( dashType != null ?'dashs/${dashType.asset}' : 'dash.png'),
       SpriteAnimationData.sequenced(
         amount: 3,
-        textureSize: Vector2.all(16),
+        textureSize: Vector2.all(dashType != null ? dashType.size.toDouble() : 16),
         stepTime: 0.12,
       ),
     );
