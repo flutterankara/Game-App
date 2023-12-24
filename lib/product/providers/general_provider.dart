@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:gameapp/product/enums/dash_type.dart';
 import 'package:gameapp/product/models/user/user_model.dart';
 
 class GeneralProvider extends ChangeNotifier {
@@ -18,4 +19,11 @@ class GeneralProvider extends ChangeNotifier {
   }
 
   AudioPlayer audioPlayer = AudioPlayer();
+  DashType? _dashType;
+  DashType? get dashType => _dashType;
+
+  set dashType(DashType? value) {
+    this._dashType = value;
+    notifyListeners();
+  }
 }

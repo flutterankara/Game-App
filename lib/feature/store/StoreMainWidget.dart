@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gameapp/feature/store/StoreBar.dart';
+import 'package:gameapp/product/enums/dash_type.dart';
 import 'package:gameapp/product/utils/google_ads.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -20,7 +21,7 @@ class _StoreMainWidgetState extends State<StoreMainWidget> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: Text("STORE",
+        title: const Text("STORE",
             style: TextStyle(color: Colors.white, fontFamily: "PixelFont",fontSize: 60)),
       ),
       body: SingleChildScrollView(
@@ -35,10 +36,10 @@ class _StoreMainWidgetState extends State<StoreMainWidget> {
               ),
               ),
             ),
-            Row(children: [Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 0),
+            Row(children: [const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12,vertical: 0),
           child: Image(image: AssetImage("assets/png/store/flutcoin.png"),width: 75)),
-          Text("300",style: TextStyle(fontSize: 50,color: Colors.white,fontFamily: "PixelFont"),),
+          const Text("300",style: TextStyle(fontSize: 50,color: Colors.white,fontFamily: "PixelFont"),),
           Padding(
             padding: const EdgeInsets.only(left:80.0),
             child: TextButton(onPressed:(){
@@ -47,7 +48,7 @@ class _StoreMainWidgetState extends State<StoreMainWidget> {
                   googleAds.showRewardedAd();
                   ilkKez = false;
                 }else if(!ilkKez){
-                  Duration otuzsaniye = Duration(seconds: 30);
+                  Duration otuzsaniye = const Duration(seconds: 30);
                   Future.delayed(otuzsaniye,(){
                     ilkKez = true;
                   });
@@ -55,16 +56,16 @@ class _StoreMainWidgetState extends State<StoreMainWidget> {
                 }
 
 
-            },child: Text("Ad", style: TextStyle(fontFamily: "PixelFont",color: Colors.white,fontSize: 50),)),
+            },child: const Text("Ad", style: TextStyle(fontFamily: "PixelFont",color: Colors.white,fontSize: 50),)),
           )
 
         ],),
-          StoreBar(image: "ClassicFlutBird.png",name: "Classic\nFlutBird",price: 500),
-          StoreBar(image: "RetroFlutBird.png",name: "Retro\nFlutBird",price: 500),
-          StoreBar(image: "DancerFlutBird.png",name: "Dancer\nFlutBird",price: 500),
-          StoreBar(image: "WhitePrensFlutBird.png",name: "Soul\nFlutBird",price: 750),
-          StoreBar(image: "TwilightFlutBird.png",name: "Twilight\nFlutBird",price: 750),
-          StoreBar(image: "EvilFlutBird.png",name: "Evil\nFlutBird",price: 1000),
+          const StoreBar(image: "ClassicFlutBird.png",name: "Classic\nFlutBird",price: 500),
+          const StoreBar(image: "RetroFlutBird.png",name: "Retro\nFlutBird",price: 500, dashType: DashType.retro,),
+          const StoreBar(image: "DancerFlutBird.png",name: "Dancer\nFlutBird",price: 500, dashType: DashType.dancer,),
+          const StoreBar(image: "WhitePrensFlutBird.png",name: "Soul\nFlutBird",price: 750, dashType: DashType.white,),
+          const StoreBar(image: "TwilightFlutBird.png",name: "Twilight\nFlutBird",price: 750, dashType: DashType.tw,),
+          const StoreBar(image: "EvilFlutBird.png",name: "Evil\nFlutBird",price: 1000, dashType: DashType.evil,),
 
 
         ]),
