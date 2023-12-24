@@ -3,6 +3,7 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
+import 'package:gameapp/core/extension/context_extension.dart';
 import 'package:gameapp/product/navigate/navigation_enums.dart';
 import 'package:gameapp/product/services/user_service.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,8 @@ import 'package:provider/provider.dart';
 import '../../../core/services/navigation_service.dart';
 import '../../../product/providers/general_provider.dart';
 
-class Player extends SpriteAnimationComponent with CollisionCallbacks, HasGameRef {
+class Player extends SpriteAnimationComponent
+    with CollisionCallbacks, HasGameRef {
   Player() : super(position: Vector2.all(100), size: Vector2.all(50));
 
   final velocity = Vector2(0, 150);
@@ -39,31 +41,72 @@ class Player extends SpriteAnimationComponent with CollisionCallbacks, HasGameRe
     super.onCollisionStart(_, other);
     gameRef.pauseEngine();
     showDialog(
+      barrierDismissible: false,
       context: ns.context,
       builder: (context) {
         var generalProvider = ns.context.read<GeneralProvider>();
         if (generalProvider.currentScore > generalProvider.user!.highScore!) {
-          UserService.instance.setUserScore(generalProvider.user!.id!, generalProvider.currentScore);
+          UserService.instance.setUserScore(
+              generalProvider.user!.id!, generalProvider.currentScore);
         }
         return AlertDialog(
-          title: const Text('GAME OVER'),
-          content: Text('Score: ${generalProvider.currentScore}'),
+          backgroundColor: Colors.teal,
+          title:  const Text(
+            'GAME OVER',
+            style: TextStyle(
+                fontSize: 40,
+                fontFamily: 'PixelFont',
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text('SCORE: ${generalProvider.currentScore}',
+                      style: const TextStyle(
+                          fontSize: 40,
+                          fontFamily: 'PixelFont',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white)),
+                ],
+              ),
+              Card( color: Colors.white,
+                  child: Image.asset('assets/png/flutGif.gif', height: context.height / 4)),
+            ],
+          ),
           actions: [
             ElevatedButton(
                 onPressed: () {
                   ns.navigateToPageClear(NavEnums.menu);
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black, // Set your desired background color here
+                ),
                 child: const Text(
-                  'Main Menu',
-                  style: TextStyle(color: Colors.white),
+                  'MAIN MENU',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'PixelFont',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 )),
             ElevatedButton(
                 onPressed: () {
                   ns.navigateToPageClear(NavEnums.gameplay);
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white, // Set your desired background color here
+                ),
                 child: const Text(
-                  'Restart',
-                  style: TextStyle(color: Colors.white),
+                  'RESTART',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'PixelFont',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ))
           ],
         );
