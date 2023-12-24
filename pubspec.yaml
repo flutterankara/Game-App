@@ -16,12 +16,14 @@ dependencies:
   shared_preferences: ^2.2.1
   stacked: ^3.4.1+1
   timeago: ^3.5.0
+  flame: ^1.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   json_serializable: ^6.7.1
+  flame_lint: ^1.1.2
 
 flutter:
   uses-material-design: true
@@ -29,3 +31,5 @@ flutter:
   assets:
   - assets/lang/
   - assets/png/
+  - assets/images/
+  - assets/images/boxes/
