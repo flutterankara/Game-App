@@ -11,5 +11,7 @@ class ProductConstants {
 
   final String appName = 'AppName';
   final String apiUrl = '';
+  final  String backgroundSound = 'sounds/flp.mp3';
+  final String jumpSound = 'sounds/jump.mp3';
 
 }

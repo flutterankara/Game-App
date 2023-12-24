@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183877801310",
+    "project_id": "flutternightgame",
+    "storage_bucket": "flutternightgame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183877801310:android:baca573b8c88fdfc936bcf",
+        "android_client_info": {
+          "package_name": "com.flutternight.gameapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG0qPXfsfrEMhQO7vvOT3uyzBfKTdrf5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

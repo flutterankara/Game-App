@@ -11,7 +11,11 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<SplashViewModel>.reactive(viewModelBuilder: () => SplashViewModel(), builder: builder);
+    return ViewModelBuilder<SplashViewModel>.reactive(
+      viewModelBuilder: () => SplashViewModel(),
+      builder: builder,
+      onViewModelReady: (viewModel) => viewModel.onViewModelReady(),
+    );
   }
 
   Widget builder(BuildContext context, SplashViewModel viewModel, Widget? child) {
@@ -22,8 +26,10 @@ class SplashView extends StatelessWidget {
         children: [
           Image.asset(ImageConstants.instance.flutterDash),
           LayoutConstants.midEmptyHeight,
-          Text('GameApp',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: context.colorScheme.primary)),
+          Text(
+            'FLUT BIRD',
+            style: TextStyle(fontSize: 50, fontFamily: 'PixelFont', fontWeight: FontWeight.bold),
+          )
         ],
       ),
     );

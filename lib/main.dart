@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gameapp/feature/store/StoreMainWidget.dart';
 import 'package:provider/provider.dart';
 
+import 'feature/mainmenu/mainmenu_view.dart';
 import 'product/extension/init_widget_extension.dart';
 import 'core/services/navigation_service.dart';
 import 'product/constants/product_constants.dart';
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         theme: context.read<ThemeManager>().currentTheme,
         navigatorKey: NavigationService.instance.navigatorKey,
         onGenerateRoute: NavigationRoute().generateRoute,
-        //home: MyHomePage(),
+        //home: StoreMainWidget(),
       ),
     );
   }
