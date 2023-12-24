@@ -19,6 +19,7 @@ dependencies:
   flame: ^1.13.1
   firebase_core: ^2.24.2
   cloud_firestore: ^4.13.6
+  google_mobile_ads: ^4.0.0
 
 dev_dependencies:
   flutter_test:
