@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:gameapp/product/models/user/user_model.dart';
 
@@ -15,4 +16,6 @@ class GeneralProvider extends ChangeNotifier {
     _user = value;
     notifyListeners();
   }
+
+  AudioPlayer audioPlayer = AudioPlayer();
 }

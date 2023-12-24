@@ -4,6 +4,7 @@ import 'package:gameapp/core/constants/app_constant.dart';
 import 'package:gameapp/core/constants/layout_constants.dart';
 import 'package:gameapp/core/extension/context_extension.dart';
 import 'package:gameapp/feature/store/StoreMainWidget.dart';
+import 'package:gameapp/feature/settings_screen/settings_view.dart';
 import 'package:gameapp/product/navigate/navigation_enums.dart';
 import 'package:gameapp/product/providers/general_provider.dart';
 import 'package:gameapp/product/utils/google_ads.dart';
@@ -31,6 +32,7 @@ class _MainMenuViewState extends State<MainMenuView> {
     return ViewModelBuilder<MainMenuViewModel>.reactive(
       viewModelBuilder: () => MainMenuViewModel(),
       builder: builder,
+      onViewModelReady: (viewModel) => viewModel.onViewModelReady(),
     );
   }
 
@@ -72,11 +74,13 @@ class _MainMenuViewState extends State<MainMenuView> {
                           children: [
                             Text(
                               ns.context.read<GeneralProvider>().user?.username ?? '',
-                              style: const TextStyle(fontSize: 32, fontFamily: 'PixelFont', fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontSize: 32, fontFamily: 'PixelFont', fontWeight: FontWeight.bold),
                             ),
                             Text(
                               'High Score: ${ns.context.read<GeneralProvider>().user?.highScore ?? ''}',
-                              style: const TextStyle(fontSize: 32, fontFamily: 'PixelFont', fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontSize: 32, fontFamily: 'PixelFont', fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
@@ -84,6 +88,13 @@ class _MainMenuViewState extends State<MainMenuView> {
                           onTap: () {
                             // Handle the click event
                             print("Lottie widget clicked!");
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return const SettingsView();
+                              },
+                            );
+                            // ns.navigateToPage(NavEnums.settings);
                           },
                           child: Lottie.asset(animSetting, fit: BoxFit.cover, height: context.height / 6),
                         )
@@ -164,6 +175,7 @@ class _MainMenuViewState extends State<MainMenuView> {
                       onTap: () {
                         // Handle the click event
                         print("Lottie widget clicked!");
+                        ns.navigateToPage(NavEnums.leaderboard);
                       },
                       child: Card(
                         color: Colors.white,
