@@ -46,6 +46,7 @@ flutter:
   - assets/font/
   - assets/images/
   - assets/images/boxes/
+  - assets/png/store/
 
   fonts:
     - family: PixelFont
