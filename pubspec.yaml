@@ -17,6 +17,7 @@ dependencies:
   stacked: ^3.4.1+1
   timeago: ^3.5.0
   flame: ^1.13.1
+  google_mobile_ads: ^4.0.0
 
 dev_dependencies:
   flutter_test:
