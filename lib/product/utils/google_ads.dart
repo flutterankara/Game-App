@@ -1,9 +1,12 @@
 
+
 import 'dart:ui';
+
 import 'package:gameapp/core/constants/string_ads.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class GoogleAds{
+  bool isInterstitialShown = false;
   int skor = 0;
   InterstitialAd? intelstitialAd;    // reklamı bu değişkene saklayacak
   BannerAd? bannerAd;
@@ -27,8 +30,9 @@ class GoogleAds{
   }
 
   void showInterstitialAd(){//eğer reklam varsa null değerinde değilse direkt göstersin
-    if(intelstitialAd !=null){
+    if(intelstitialAd != null){
       intelstitialAd!.show();
+
     }
 
   }
@@ -37,7 +41,7 @@ class GoogleAds{
     bannerAd = BannerAd(
       adUnitId: AdStrings.bannerAd1,
       request: const AdRequest(),
-      size: AdSize.banner,
+      size: AdSize.largeBanner,
       listener: BannerAdListener(
         onAdLoaded: (ad) {
           bannerAd = ad as BannerAd; // ad değişkenini BannerAd olarak değiştir
