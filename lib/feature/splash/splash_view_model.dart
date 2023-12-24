@@ -22,8 +22,7 @@ class SplashViewModel extends BaseViewModel {
         SharedManager.instance.setStringValue(SharedKeys.username, user.username!);
       }
       ns.context.read<GeneralProvider>().user = user;
-      await Future.delayed(const Duration(seconds: 1));
-      ns.navigateToPageClear(NavEnums.gameplay);
+      ns.navigateToPageClear(NavEnums.menu);
     } catch (e) {
       print(e);
     }

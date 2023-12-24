@@ -46,19 +46,25 @@ class Player extends SpriteAnimationComponent with CollisionCallbacks, HasGameRe
           UserService.instance.setUserScore(generalProvider.user!.id!, generalProvider.currentScore);
         }
         return AlertDialog(
-          title: const Text('OYUN BİTTİ'),
+          title: const Text('GAME OVER'),
           content: Text('Score: ${generalProvider.currentScore}'),
           actions: [
-            Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    ns.navigateToPageClear(NavEnums.gameplay);
-                  },
-                  child: const Text(
-                    'Yeniden Başlat',
-                    style: TextStyle(color: Colors.white),
-                  )),
-            )
+            ElevatedButton(
+                onPressed: () {
+                  ns.navigateToPageClear(NavEnums.menu);
+                },
+                child: const Text(
+                  'Main Menu',
+                  style: TextStyle(color: Colors.white),
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  ns.navigateToPageClear(NavEnums.gameplay);
+                },
+                child: const Text(
+                  'Restart',
+                  style: TextStyle(color: Colors.white),
+                ))
           ],
         );
       },

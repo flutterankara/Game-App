@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gameapp/feature/gameplay/gameplay_view.dart';
+import 'package:gameapp/feature/mainmenu/mainmenu_view.dart';
 import '../../feature/splash/splash_view.dart';
 import 'navigation_enums.dart';
 
@@ -8,6 +9,8 @@ class NavigationRoute {
     switch (args.name!.navValue) {
       case NavEnums.init:
         return _normalNavigate(const SplashView());
+      case NavEnums.menu:
+        return _normalNavigate(const MainMenuView());
       case NavEnums.gameplay:
         return _normalNavigate(const GameplayView());
       default:

@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         theme: context.read<ThemeManager>().currentTheme,
         navigatorKey: NavigationService.instance.navigatorKey,
         onGenerateRoute: NavigationRoute().generateRoute,
-        home: MainMenuView(),
+        // home: MainMenuView(),
       ),
     );
   }
